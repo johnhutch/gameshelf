@@ -9444,7 +9444,7 @@ module.exports = ReactPropTypesSecret;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -9461,47 +9461,57 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Form = function (_Component) {
-    _inherits(Form, _Component);
+var Form = function (_React$Component) {
+  _inherits(Form, _React$Component);
 
-    function Form(props) {
-        _classCallCheck(this, Form);
+  function Form(props) {
+    _classCallCheck(this, Form);
 
-        var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
 
-        _this.state = { value: '' };
-        // this.handleClick = this.handleClick.bind(this);    
-        return _this;
+    _this.state = { value: '' };
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
+  }
+
+  _createClass(Form, [{
+    key: 'handleClick',
+    value: function handleClick(event) {
+      event.preventDefault();
+      console.log('Button with text "' + this.props.buttonText + '" has been clicked.');
+      console.log(event);
     }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'form',
+        { className: 'Form' },
+        _react2.default.createElement(
+          'label',
+          { className: 'Form__label', htmlFor: 'username' },
+          'Username'
+        ),
+        _react2.default.createElement('input', { type: 'text', className: 'Form__input Form__input--text', name: 'username' }),
+        _react2.default.createElement(
+          'button',
+          { type: 'submit', className: 'Form__button Form__button--submit', onClick: this.handleClick },
+          this.props.buttonText
+        )
+      );
+    }
+  }]);
 
-    _createClass(Form, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'form',
-                { className: 'Form' },
-                _react2.default.createElement(
-                    'label',
-                    { className: 'Form__label', htmlFor: 'username' },
-                    'Username:'
-                ),
-                _react2.default.createElement('input', { type: 'text', className: 'Form__input Form__input--text', name: 'username' }),
-                _react2.default.createElement(
-                    'button',
-                    { type: 'submit', className: 'Form__button Form__button--submit', onClick: this.handleClick },
-                    this.props.buttonText
-                )
-            );
-        }
-    }, {
-        key: 'handleClick',
-        value: function handleClick(event) {
-            console.log(event);
-        }
-    }]);
+  return Form;
+}(_react2.default.Component);
 
-    return Form;
-}(_react.Component);
+Form.propTypes = {
+  buttonText: _react2.default.PropTypes.string
+};
+
+Form.defaultProps = {
+  buttonText: 'Submit'
+};
 
 exports.default = Form;
 
