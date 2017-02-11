@@ -9472,17 +9472,17 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Form = function (_React$Component) {
-  _inherits(Form, _React$Component);
+var CollectionForm = function (_React$Component) {
+  _inherits(CollectionForm, _React$Component);
 
   /*
    * Constructor method takes in optional props, and calls the super class' constructor first.
    * After that, set the initial state, and bind all event handlers.
    */
-  function Form(props) {
-    _classCallCheck(this, Form);
+  function CollectionForm(props) {
+    _classCallCheck(this, CollectionForm);
 
-    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (CollectionForm.__proto__ || Object.getPrototypeOf(CollectionForm)).call(this, props));
 
     _this.state = { value: '' };
     _this.handleClick = _this.handleClick.bind(_this);
@@ -9495,7 +9495,7 @@ var Form = function (_React$Component) {
    */
 
 
-  _createClass(Form, [{
+  _createClass(CollectionForm, [{
     key: 'handleClick',
     value: function handleClick(event) {
       event.preventDefault();
@@ -9514,23 +9514,23 @@ var Form = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'form',
-        { className: 'Form' },
+        { className: 'CollectionForm' },
         _react2.default.createElement(
           'label',
-          { className: 'Form__label', htmlFor: 'username' },
+          { className: 'CollectionForm__label', htmlFor: 'username' },
           'Username'
         ),
-        _react2.default.createElement('input', { type: 'text', className: 'Form__input Form__input--text', name: 'username' }),
+        _react2.default.createElement('input', { type: 'text', className: 'CollectionForm__input CollectionForm__input--text', name: 'username' }),
         _react2.default.createElement(
           'button',
-          { type: 'submit', className: 'Form__button Form__button--submit', onClick: this.handleClick },
+          { type: 'submit', className: 'CollectionForm__button CollectionForm__button--submit', onClick: this.handleClick },
           this.props.buttonText
         )
       );
     }
   }]);
 
-  return Form;
+  return CollectionForm;
 }(_react2.default.Component);
 
 /*
@@ -9539,7 +9539,7 @@ var Form = function (_React$Component) {
  */
 
 
-Form.propTypes = {
+CollectionForm.propTypes = {
   buttonText: _react2.default.PropTypes.string
 };
 
@@ -9547,13 +9547,13 @@ Form.propTypes = {
  * Component property for the default values of props
  * in case you don't supply a value when using ReactDOM.render.
  */
-Form.defaultProps = {
+CollectionForm.defaultProps = {
   buttonText: 'Submit'
 };
 
-exports.default = Form; // Makes this Form component an official module to use elsewhere.
+exports.default = CollectionForm; // Makes this CollectionForm component an official module to use elsewhere.
 
-/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jonathan/Sites/gameshelf/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "form.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jonathan/Sites/gameshelf/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "collection_form.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }),
 /* 82 */
@@ -21801,9 +21801,9 @@ var _reactDom = __webpack_require__(80);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _form = __webpack_require__(81);
+var _collection_form = __webpack_require__(81);
 
-var _form2 = _interopRequireDefault(_form);
+var _collection_form2 = _interopRequireDefault(_collection_form);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21811,7 +21811,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Render the previously defined Form component and insert into the .article--main element.
  * The property buttonText is optional according to the Form component definition.
  */
-_reactDom2.default.render(_react2.default.createElement(_form2.default, { buttonText: 'Get Collection' }), document.getElementsByClassName('article--main')[0]);
+_reactDom2.default.render(_react2.default.createElement(_collection_form2.default, { buttonText: 'Get Collection' }), document.getElementsByClassName('article--main')[0]);
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jonathan/Sites/gameshelf/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "app.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
