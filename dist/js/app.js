@@ -9514,16 +9514,20 @@ var CollectionForm = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'form',
-        { className: 'CollectionForm' },
+        null,
         _react2.default.createElement(
-          'label',
-          { className: 'CollectionForm__label', htmlFor: 'username' },
-          'Username'
+          'div',
+          { className: 'form-group' },
+          _react2.default.createElement(
+            'label',
+            { htmlFor: 'username' },
+            'Username'
+          ),
+          _react2.default.createElement('input', { type: 'text', className: 'form-control', name: 'username' })
         ),
-        _react2.default.createElement('input', { type: 'text', className: 'CollectionForm__input CollectionForm__input--text', name: 'username' }),
         _react2.default.createElement(
           'button',
-          { type: 'submit', className: 'CollectionForm__button CollectionForm__button--submit', onClick: this.handleClick },
+          { type: 'submit', className: 'btn btn-primary', onClick: this.handleClick },
           this.props.buttonText
         )
       );
@@ -21811,7 +21815,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Render the previously defined Form component and insert into the .article--main element.
  * The property buttonText is optional according to the Form component definition.
  */
-_reactDom2.default.render(_react2.default.createElement(_collection_form2.default, { buttonText: 'Get Collection' }), document.getElementsByClassName('article--main')[0]);
+_reactDom2.default.render(_react2.default.createElement(_collection_form2.default, { buttonText: 'Get Collection' }), document.querySelector('aside'));
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jonathan/Sites/gameshelf/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "app.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 

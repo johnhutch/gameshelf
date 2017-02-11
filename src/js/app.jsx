@@ -8,5 +8,5 @@ import CollectionForm from './components/collection_form.jsx';
  */
 ReactDOM.render(
   <CollectionForm buttonText="Get Collection" />,
-  document.getElementsByClassName('article--main')[0],
+  document.querySelector('aside'),
 );
