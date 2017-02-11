@@ -2,39 +2,21 @@ import path from 'path';
 import webpack from 'webpack';
 
 module.exports = {
-  entry: './src/js/main.jsx',
+  entry: __dirname + '/src/js/app.jsx',
   output: {
-    path: './dist/js',
-    filename: 'bundle.js'
+    path: __dirname + '/dist/js',
+    filename: 'app.js'
   },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-      // test: /\.xxx$/, // may apply this only for some modules
-      options: {
-        eslint: {
-          configFile: './.eslintrc'
-        }
-      }
-    })
-  ],
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.json']
+  },
   module: {
     loaders: [
       {
-        test: /main\.jsx$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react']
-        }
-      },    
-      {
-        test: /\.jsx?$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/
       }
     ]
   }
 };
-
-
-
