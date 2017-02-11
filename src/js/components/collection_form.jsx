@@ -28,10 +28,12 @@ class CollectionForm extends React.Component {
    */
   render() {
     return (
-      <form className="CollectionForm">
-        <label className="CollectionForm__label" htmlFor="username">Username</label>
-        <input type="text" className="CollectionForm__input CollectionForm__input--text" name="username" />
-        <button type="submit" className="CollectionForm__button CollectionForm__button--submit" onClick={this.handleClick}>{this.props.buttonText}</button>
+      <form>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input type="text" className="form-control" name="username" />
+        </div>
+        <button type="submit" className="btn btn-primary" onClick={this.handleClick}>{this.props.buttonText}</button>
       </form>
     );
   }
