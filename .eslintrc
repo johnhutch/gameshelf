@@ -2,14 +2,18 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true,
-    "jquery": true
+    "node": true
   },
-  "extends": "eslint:recommended",
+  "extends": "airbnb",
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }
   },
   "rules": {
-    "no-console": "error"
+    "no-console": 1,
+    "comma-dangle": 1,
+    "react/jsx-indent": 1
   }
 }
