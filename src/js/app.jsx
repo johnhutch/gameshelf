@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CollectionForm from './components/collection_form.jsx';
+import Game from './components/game.jsx';
 
 /*
  * Render the previously defined Form component and insert into the .article--main element.
@@ -9,4 +10,9 @@ import CollectionForm from './components/collection_form.jsx';
 ReactDOM.render(
   <CollectionForm buttonText="Get Collection" />,
   document.querySelector('aside#tools'),
+);
+
+ReactDOM.render(
+  <Game />,
+  document.body.querySelector(".games"),
 );
