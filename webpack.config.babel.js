@@ -7,7 +7,11 @@ module.exports = {
   output: {
     path: __dirname + '/dist/js',
     filename: 'app.js',
-    publicPath: '/public/'
+    path: path.resolve(__dirname, 'public/')
+  },
+
+  devServer:{
+    contentBase: 'public'
   },
 
   module: {
