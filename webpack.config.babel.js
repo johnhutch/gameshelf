@@ -7,9 +7,6 @@ module.exports = {
     path: __dirname + '/dist/js',
     filename: 'app.js'
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
-  },
   module: {
     loaders: [
       {
