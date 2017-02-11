@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Form from './components/form';
+import Form from './src/js/components/form';
 
 ReactDOM.render(
   <Form buttonText="Get Collection" />,
