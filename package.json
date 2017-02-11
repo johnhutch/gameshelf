@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --config webpack.config.babel.js",
+    "webpack": "node ./node_modules/.bin/webpack --config webpack.config.babel.js",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --history-api-fallback",
     "eslint": "node ./node_modules/.bin/eslint **/*.jsx **/*.js; exit 0"
   },
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/jon-athan-hall/gameshelf#readme",
   "dependencies": {
     "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2"
   },
   "devDependencies": {

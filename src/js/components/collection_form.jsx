@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Form extends React.Component {
+class CollectionForm extends React.Component {
   /*
    * Constructor method takes in optional props, and calls the super class' constructor first.
    * After that, set the initial state, and bind all event handlers.
@@ -28,10 +28,10 @@ class Form extends React.Component {
    */
   render() {
     return (
-      <form className="Form">
-        <label className="Form__label" htmlFor="username">Username</label>
-        <input type="text" className="Form__input Form__input--text" name="username" />
-        <button type="submit" className="Form__button Form__button--submit" onClick={this.handleClick}>{this.props.buttonText}</button>
+      <form className="CollectionForm">
+        <label className="CollectionForm__label" htmlFor="username">Username</label>
+        <input type="text" className="CollectionForm__input CollectionForm__input--text" name="username" />
+        <button type="submit" className="CollectionForm__button CollectionForm__button--submit" onClick={this.handleClick}>{this.props.buttonText}</button>
       </form>
     );
   }
@@ -41,7 +41,7 @@ class Form extends React.Component {
  * Component property for what types you are expecting when
  * the component is actually created with ReactDOM.render.
  */
-Form.propTypes = {
+CollectionForm.propTypes = {
   buttonText: React.PropTypes.string,
 };
 
@@ -49,8 +49,8 @@ Form.propTypes = {
  * Component property for the default values of props
  * in case you don't supply a value when using ReactDOM.render.
  */
-Form.defaultProps = {
+CollectionForm.defaultProps = {
   buttonText: 'Submit',
 };
 
-export default Form; // Makes this Form component an official module to use elsewhere.
+export default CollectionForm; // Makes this CollectionForm component an official module to use elsewhere.
