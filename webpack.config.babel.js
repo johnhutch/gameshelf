@@ -1,18 +1,21 @@
 import path from 'path';
-import webpack from 'webpack';
 
 module.exports = {
-  entry: __dirname + '/src/js/app.jsx',
+
+  entry: './src/js/app.jsx',
+
   output: {
     path: __dirname + '/dist/js',
-    filename: 'app.js'
+    filename: 'app.js',
+    publicPath: '/public/'
   },
+
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
         exclude: /node_modules/,
+        loader: ['react-hot-loader', 'babel-loader'],
       }
     ]
   }
