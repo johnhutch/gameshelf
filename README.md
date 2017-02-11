@@ -1,2 +1,2 @@
-# gameshelf
-Display useful information about your board game collection.
+# Gameshelf
+A useful hub for your board game collection.
