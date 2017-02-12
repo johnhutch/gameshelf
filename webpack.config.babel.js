@@ -2,37 +2,37 @@ import path from 'path';
 
 module.exports = {
 
-  entry: './src/js/app.jsx',
-
+  entry: "./src/js/app.jsx",
+  
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, 'public/')
-  },
-
-  devServer:{
-    contentBase: 'public'
+  
+    path: path.resolve(__dirname, "public/"),
+  
+    filename: "app.js",
+  
   },
 
   module: {
+
     rules: [
+
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        exclude: [
+          path.resolve(__dirname, "node_modules/")
+        ],
+
         use: [
-          {
-            loader: "react-hot-loader"
-          },
-          {
-            loader: "babel-loader"
-          }
+          { loader: "react-hot-loader" },
+          { loader: "babel-loader" },
         ]
       },
+
       {
-        test: /\.css$/,
+        test: "\.css$",
+
         use: [ 
-          { 
-            loader: "style-loader"
-          },
+          "style-loader",
           {
             loader: "css-loader",
             options: {
@@ -42,7 +42,8 @@ module.exports = {
         ]
       },
       {
-        test: /\.useable\.css$/,
+        test: "\.useable\.css$",
+
         use: [
           { 
             loader: "style-loader",
@@ -56,5 +57,9 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+
+  devServer:{
+    contentBase: 'public'
+  }  
 }
