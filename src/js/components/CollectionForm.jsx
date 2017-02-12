@@ -32,11 +32,11 @@ class CollectionForm extends React.Component {
    */
   handleButtonClick(event) {
     event.preventDefault();
-    if (this.state.value === 'ready') {
+    if (this.state.value !== 'busy') {
       /*
       const http://www.boardgamegeek.com/xmlapi/collection/zefquaavius?own=1;
       */
-      console.log(event);
+      console.log(this.state.username);
       this.setState({
         value: 'busy',
         username: this.state.username,

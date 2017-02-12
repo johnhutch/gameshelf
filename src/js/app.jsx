@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CollectionForm from './components/collection_form.jsx';
-import Game from './components/game.jsx';
+import CollectionForm from './components/CollectionForm.jsx';
+import Game from './components/Game.jsx';
 
 /*
  * Render the previously defined Form component and insert into the .article--main element.
