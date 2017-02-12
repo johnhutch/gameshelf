@@ -14,5 +14,5 @@ ReactDOM.render(
 
 ReactDOM.render(
   <Game />,
-  document.body.querySelector(".games"),
+  document.body.querySelector('.games'),
 );

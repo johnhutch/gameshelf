@@ -7,7 +7,7 @@ class CollectionForm extends React.Component {
    */
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { value: 'ready' };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -17,8 +17,16 @@ class CollectionForm extends React.Component {
    */
   handleClick(event) {
     event.preventDefault();
-    console.log(`Button with text "${this.props.buttonText}" has been clicked.`);
-    console.log(event);
+    if (this.state.value === 'ready') {
+      this.setState({ value: 'busy' });
+      setTimeout(() => {
+        console.log(`Button with text "${this.props.buttonText}" has been clicked.`);
+        console.log(event);
+        this.setState({ value: 'ready' });
+      }, 1000);
+    } else {
+      console.log('Form is busy.');
+    }
   }
 
   /*
@@ -27,13 +35,15 @@ class CollectionForm extends React.Component {
    * Note that you can insert actual JS code using the {} wrapper.
    */
   render() {
+    const className = `form--${this.state.value}`;
+    const disabled = (this.state.value === 'busy');
     return (
-      <form>
+      <form className={className}>
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input type="text" className="form-control" name="username" />
         </div>
-        <button type="submit" className="btn btn-primary" onClick={this.handleClick}>{this.props.buttonText}</button>
+        <button type="submit" className="btn btn-primary" disabled={disabled} onClick={this.handleClick}>{this.props.buttonText}</button>
       </form>
     );
   }
