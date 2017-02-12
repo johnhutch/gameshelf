@@ -1,0 +1,12 @@
+.CollectionForm {
+    background-color: blue;
+}
+
+.CollectionForm--ready {
+  opacity: 1;
+  background: red;
+}
+
+.CollectionForm--busy {
+  opacity: .5;
+}
