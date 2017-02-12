@@ -9,7 +9,7 @@ import Game from './components/game.jsx';
  */
 ReactDOM.render(
   <CollectionForm buttonText="Get Collection" />,
-  document.querySelector('aside'),
+  document.querySelector('aside#tools'),
 );
 
 ReactDOM.render(
