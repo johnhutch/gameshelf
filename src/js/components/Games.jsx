@@ -17,12 +17,11 @@ class Games extends React.Component {
    */
   render() {
     return (
-      <article id="Games" className="col-xs-8">
+      <section id="Games" className="Games">
         Muh game!
-      </article>
+      </section>
     );
   }
 }
-
 
 export default Games; // Makes this Games component an official module to use elsewhere.

@@ -63,15 +63,13 @@ class CollectionForm extends React.Component {
     const className = `CollectionForm CollectionForm--${this.state.value}`;
     const disabled = (this.state.value === 'busy');
     return (
-      <aside id="CollectionForm" className="col-xs-4">
-        <form className={className}>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input type="text" className="form-control" name="username" onChange={this.handleInputChange} />
-          </div>
-          <button type="submit" className="btn btn-primary" disabled={disabled} onClick={this.handleButtonClick}>{this.props.buttonText}</button>
-        </form>
-      </aside>
+      <form className={className}>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input type="text" className="form-control" name="username" onChange={this.handleInputChange} />
+        </div>
+        <button type="submit" className="btn btn-primary" disabled={disabled} onClick={this.handleButtonClick}>{this.props.buttonText}</button>
+      </form>
     );
   }
 }
