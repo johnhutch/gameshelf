@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Games extends React.Component {
+class Game extends React.Component {
   /*
    * Constructor method takes in optional props, and calls the super class' constructor first.
    * After that, set the initial state, and bind all event handlers.
@@ -17,12 +17,18 @@ class Games extends React.Component {
    */
   render() {
     return (
-      <article id="Games" className="col-xs-8">
-        Muh game!
-      </article>
+        <li>{this.props.name}</li>
     );
   }
 }
 
+/*
+ * Component property for what types you are expecting when
+ * the component is actually created with ReactDOM.render.
+ */
+Game.propTypes = {
+  name: React.PropTypes.string.isRequired,
+};
 
-export default Games; // Makes this Games component an official module to use elsewhere.
+
+export default Game; // Makes this Game component an official module to use elsewhere.

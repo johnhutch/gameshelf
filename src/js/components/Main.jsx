@@ -1,6 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 import CollectionForm from './CollectionForm.jsx';
-import Games from './Games.jsx';
+import Game from './Game.jsx';
 
 class Main extends React.Component {
   /*
@@ -10,21 +11,40 @@ class Main extends React.Component {
    */
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { games: [] };
+  }
+
+  componentDidMount() {
+    this.serverRequest =
+      axios
+      .get('https://bgg-json.azurewebsites.net/collection/arbitrarynoun')
+      .then((response) => {
+        this.setState({ games: response.data });
+      })
+      .catch(error => console.log(error));
+  }
+
+  componentWillUnmount() {
+    this.serverRequest.abort();
   }
 
   /*
    * Render subcomponents for <main> html element
    */
   render() {
+    const games = this.state.games;
+    console.log(games);
     return (
       <div className="container">
         <CollectionForm buttonText="Get Collection" />
-        <Games />
+        <article id="Game" className="col-xs-8">
+          {games.map(game =>
+            <Game name={game.name} />
+          )}
+        </article>
       </div>
     );
   }
 }
-
 
 export default Main;
