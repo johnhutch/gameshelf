@@ -7,22 +7,47 @@ class CollectionForm extends React.Component {
    */
   constructor(props) {
     super(props);
-    this.state = { value: 'ready' };
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      value: 'ready',
+      username: '',
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+  }
+
+  /*
+   * Event handler for the username input field.
+   * Whenever it changes, update the local state of the component.
+   */
+  handleInputChange(event) {
+    this.setState({
+      value: 'active',
+      username: event.target.value,
+    });
   }
 
   /*
    * Event handler for the submit button click on the component.
    * For now, it prevents the default event, and console.logs some info.
    */
-  handleClick(event) {
+  handleButtonClick(event) {
     event.preventDefault();
     if (this.state.value === 'ready') {
-      this.setState({ value: 'busy' });
+      /*
+      const http://www.boardgamegeek.com/xmlapi/collection/zefquaavius?own=1;
+      */
+      console.log(event);
+      this.setState({
+        value: 'busy',
+        username: this.state.username,
+      });
       setTimeout(() => {
         console.log(`Button with text "${this.props.buttonText}" has been clicked.`);
         console.log(event);
-        this.setState({ value: 'ready' });
+        this.setState({
+          value: 'ready',
+          username: '',
+        });
       }, 1000);
     } else {
       console.log('Form is busy.');
@@ -35,15 +60,15 @@ class CollectionForm extends React.Component {
    * Note that you can insert actual JS code using the {} wrapper.
    */
   render() {
-    const className = `form--${this.state.value}`;
+    const className = `CollectionForm CollectionForm--${this.state.value}`;
     const disabled = (this.state.value === 'busy');
     return (
       <form className={className}>
         <div className="form-group">
           <label htmlFor="username">Username</label>
-          <input type="text" className="form-control" name="username" />
+          <input type="text" className="form-control" name="username" onChange={this.handleInputChange} />
         </div>
-        <button type="submit" className="btn btn-primary" disabled={disabled} onClick={this.handleClick}>{this.props.buttonText}</button>
+        <button type="submit" className="btn btn-primary" disabled={disabled} onClick={this.handleButtonClick}>{this.props.buttonText}</button>
       </form>
     );
   }
