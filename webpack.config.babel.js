@@ -14,12 +14,36 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: ['react-hot-loader', 'babel-loader'],
-      }
-    ]
+      },
+      {
+        test: /\.css$/,
+        use: [ 
+          //{ loader: 'style-loader'},
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.useable\.css$/,
+        use: [
+          { 
+            loader: "style-loader",
+            options: {
+              useable: true
+            },
+          },
+          { loader: "css-loader" },
+        ],
+      },
+    ],
   }
 };
