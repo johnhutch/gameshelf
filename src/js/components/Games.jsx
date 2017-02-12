@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Game extends React.Component {
+class Games extends React.Component {
   /*
    * Constructor method takes in optional props, and calls the super class' constructor first.
    * After that, set the initial state, and bind all event handlers.
@@ -17,12 +17,12 @@ class Game extends React.Component {
    */
   render() {
     return (
-      <div className="Game">
+      <article id="Games" className="col-xs-8">
         Muh game!
-      </div>
+      </article>
     );
   }
 }
 
 
-export default Game; // Makes this Game component an official module to use elsewhere.
+export default Games; // Makes this Games component an official module to use elsewhere.
