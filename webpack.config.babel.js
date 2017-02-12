@@ -23,22 +23,17 @@ module.exports = {
         ],
 
         use: [
-          { loader: "react-hot-loader" },
-          { loader: "babel-loader" },
+          "react-hot-loader", 
+          "babel-loader"
         ]
       },
 
       {
-        test: "\.css$",
+        test: /\.css$/,
 
         use: [ 
           "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: true
-            }
-          }
+          "css-loader"
         ]
       },
       {
