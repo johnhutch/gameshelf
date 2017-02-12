@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class CollectionForm extends React.Component {
   /*
@@ -16,14 +17,13 @@ class CollectionForm extends React.Component {
   }
 
   /*
-   * Event handler for the username input field.
-   * Whenever it changes, update the local state of the component.
+   * Event handler for updating the component's state as the user
+   * types in the username input element.
    */
   handleInputChange(event) {
-    this.setState({
-      value: 'active',
-      username: event.target.value,
-    });
+    event.preventDefault();
+    this.setState({ username: event.target.value }); // Update the local state. We'll need this username for submit.
+    this.props.onInputChange(event.target.value); // This was supplied as a prop by the Main component, and triggers a global state change.
   }
 
   /*
@@ -32,25 +32,17 @@ class CollectionForm extends React.Component {
    */
   handleButtonClick(event) {
     event.preventDefault();
-    if (this.state.value !== 'busy') {
-      /*
-      const http://www.boardgamegeek.com/xmlapi/collection/zefquaavius?own=1;
-      */
-      console.log(this.state.username);
-      this.setState({
-        value: 'busy',
-        username: this.state.username,
-      });
-      setTimeout(() => {
-        console.log(`Button with text "${this.props.buttonText}" has been clicked.`);
-        console.log(event);
-        this.setState({
-          value: 'ready',
-          username: '',
-        });
-      }, 1000);
-    } else {
-      console.log('Form is busy.');
+    if (this.state.username) {
+      this.setState({ value: 'busy' });
+      const username = this.state.username;
+      this.serverRequest =
+        axios
+          .get(`https://bgg-json.azurewebsites.net/collection/${username}`)
+          .then((response) => {
+            this.props.onButtonClick(response.data); // This was supplied as a prop by the Main component, and triggers a global state change.
+            this.setState({ value: 'ready' }); // Update the local state of the form, now that the request is done.
+          })
+          .catch(error => console.log(error));
     }
   }
 
@@ -60,15 +52,14 @@ class CollectionForm extends React.Component {
    * Note that you can insert actual JS code using the {} wrapper.
    */
   render() {
-    const className = `CollectionForm CollectionForm--${this.state.value}`;
-    const disabled = (this.state.value === 'busy');
+    const isDisabled = (this.state.value === 'busy');
     return (
-      <form className={className}>
+      <form className="CollectionForm">
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input type="text" className="form-control" name="username" onChange={this.handleInputChange} />
         </div>
-        <button type="submit" className="btn btn-primary" disabled={disabled} onClick={this.handleButtonClick}>{this.props.buttonText}</button>
+        <button type="submit" className="btn btn-primary" disabled={isDisabled} onClick={this.handleButtonClick}>{this.props.buttonText}</button>
       </form>
     );
   }
@@ -80,6 +71,8 @@ class CollectionForm extends React.Component {
  */
 CollectionForm.propTypes = {
   buttonText: React.PropTypes.string,
+  onInputChange: React.PropTypes.func.isRequired,
+  onButtonClick: React.PropTypes.func.isRequired,
 };
 
 /*
@@ -90,4 +83,4 @@ CollectionForm.defaultProps = {
   buttonText: 'Submit',
 };
 
-export default CollectionForm; // Makes this CollectionForm component an official module to use elsewhere.
+export default CollectionForm;

@@ -8,6 +8,7 @@
     "max-len": 0,
     "import/extensions": 0,
     "no-console": 1,
-    "react/jsx-indent": 1
+    "react/jsx-indent": 1,
+    "react/prop-types": 1,
   }
 }

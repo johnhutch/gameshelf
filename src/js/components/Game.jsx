@@ -17,7 +17,7 @@ class Game extends React.Component {
    */
   render() {
     return (
-        <li>{this.props.name}</li>
+      <li className="Game">{this.props.name}</li>
     );
   }
 }

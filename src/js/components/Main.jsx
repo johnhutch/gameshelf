@@ -1,7 +1,8 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import CollectionForm from './CollectionForm.jsx';
 import Game from './Game.jsx';
+import { updateUsername, getGamesSuccess } from './../actions'; // These are the only action creators made so far.
 
 /*
  * Closest we get to a "global" state set for our app, as this is the top level "root" component.
@@ -10,42 +11,43 @@ import Game from './Game.jsx';
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { games: [] };
-  }
-
-  componentDidMount() {
-    this.serverRequest =
-      axios
-      .get('https://bgg-json.azurewebsites.net/collection/arbitrarynoun')
-      .then((response) => {
-        this.setState({ games: response.data });
-      })
-      .catch(error => console.log(error));
-  }
-
-  componentWillUnmount() {
-    this.serverRequest.abort();
+    this.state = {
+      value: '',
+    };
   }
 
   /*
    * Render subcomponents for <main> html element
    */
   render() {
-    const games = this.state.games;
-    console.log(games);
+    const games = this.props.games;
     return (
       <main className="row">
         <aside className="col-xs-4">
-          <CollectionForm buttonText="Get Collection" />
+          <CollectionForm buttonText="Get Collection" onInputChange={this.props.handleInputChange} onButtonClick={this.props.handleButtonClick} />
         </aside>
-        <article id="Game" className="col-xs-8">
-          {games.map(game =>
-            <Game name={game.name} />
-          )}
-        </article>
+        <ul className="Games col-xs-8">
+          {games.map(game => <Game name={game.name} />)}
+        </ul>
       </main>
     );
   }
 }
 
-export default Main;
+/*
+ * These two functions work along with the store that Provider bases to Main.
+ * The mapStateToProps lets you grab whatever state values you may need here.
+ * The mapDispatchToProps lets you define small functions that dispatch action creators.
+ * And that crazy (connect) syntax ties it all together, making everything available in props.
+ */
+const mapStateToProps = state => ({
+  username: state.username,
+  games: state.games,
+});
+
+const mapDispatchToProps = dispatch => ({
+  handleInputChange: (username) => { dispatch(updateUsername(username)); },
+  handleButtonClick: (games) => { dispatch(getGamesSuccess(games)); },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
