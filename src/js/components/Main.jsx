@@ -2,6 +2,10 @@ import React from 'react';
 import CollectionForm from './CollectionForm.jsx';
 import Games from './Games.jsx';
 
+/*
+ * Closest we get to a "global" state set for our app, as this is the top level "root" component.
+ * http://andrewhfarmer.com/react-ajax-best-practices/
+ */
 class Main extends React.Component {
   constructor(props) {
     super(props);
