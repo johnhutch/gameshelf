@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './components/Main.jsx';
 import gameshelf from './reducers';
+import 'Styles/CollectionForm.css';
 
 /*
  * Now that the reducers have been created and combined into
