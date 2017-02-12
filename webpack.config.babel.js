@@ -18,14 +18,23 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: ['react-hot-loader', 'babel-loader'],
+        use: [
+          {
+            loader: "react-hot-loader"
+          },
+          {
+            loader: "babel-loader"
+          }
+        ]
       },
       {
         test: /\.css$/,
         use: [ 
-          //{ loader: 'style-loader'},
+          { 
+            loader: "style-loader"
+          },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               modules: true
             }
@@ -39,11 +48,13 @@ module.exports = {
             loader: "style-loader",
             options: {
               useable: true
-            },
+            }
           },
-          { loader: "css-loader" },
-        ],
-      },
-    ],
+          { 
+            loader: "css-loader" 
+          }
+        ]
+      }
+    ]
   }
-};
+}
