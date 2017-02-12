@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-
 class CollectionForm extends React.Component {
   /*
    * Constructor method takes in optional props, and calls the super class' constructor first.
